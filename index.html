@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Deteksi Jalan Berlubang</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Dashboard Deteksi Jalan Berlubang</h1>
+    <p>YOLO + Python OpenCV + Localhost</p>
+</header>
+
+<main>
+    <section class="cards">
+        <div class="card">
+            <h3>Status Jalan</h3>
+            <p id="status">-</p>
+        </div>
+
+        <div class="card">
+            <h3>Jumlah Lubang</h3>
+            <p id="lubang">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Confidence</h3>
+            <p id="confidence">-</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Deteksi</h3>
+            <p id="count">0</p>
+        </div>
+    </section>
+
+    <section class="video-box">
+        <h2>Live YOLO Detection</h2>
+        <img src="/video_feed" alt="Live Detection">
+    </section>
+</main>
+
+<footer>
+    <p>Update terakhir: <span id="update">-</span></p>
+    <p>Sistem Deteksi Jalan Berlubang Berbasis YOLO dan Localhost</p>
+</footer>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

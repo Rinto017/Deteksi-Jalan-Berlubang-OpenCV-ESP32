@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Deteksi Jalan</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div>
+        <h1>Sistem Deteksi Kerusakan Jalan</h1>
+        <p>Monitoring Berbasis YOLO, Localhost, MySQL, dan ESP32</p>
+    </div>
+
+    <div class="top-info">
+        <p>Admin: {{ username }}</p>
+        <h2 id="clock">--:--:--</h2>
+        <a href="/logout">Logout</a>
+    </div>
+</header>
+
+<main class="dashboard-grid">
+
+    <section class="panel video-panel">
+        <div class="panel-title">
+            <h2>Live Camera Feed</h2>
+            <span id="status-badge">Status: -</span>
+        </div>
+
+        <img src="/video_feed" class="video-feed">
+
+        <p class="mode">Model: YOLO | Source: <span id="source-name">-</span></p>
+    </section>
+
+    <section class="panel upload-panel">
+        <h2>Upload Video Deteksi</h2>
+
+        <div class="upload-actions">
+            <button id="select-file" class="btn-primary">⬆ SELECT FILES</button>
+            <button id="clear-video" class="btn-danger">✕ CLEAR</button>
+        </div>
+
+        <input type="file" id="video-input" accept="video/*" hidden>
+
+        <div id="drop-zone" class="drop-zone">
+            <div class="drop-icon">🎥</div>
+            <h3>Drop Your Video Here</h3>
+            <p>Format: MP4, AVI, MOV, MKV</p>
+        </div>
+
+        <div class="upload-info">
+            <p id="upload-status">Belum ada video di-upload.</p>
+        </div>
+    </section>
+
+    <section class="panel sensor-panel">
+        <h2>Data Deteksi</h2>
+
+        <div class="info-row">
+            <span>Status Jalan</span>
+            <strong id="status">-</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Jumlah Lubang</span>
+            <strong id="lubang">0</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Confidence</span>
+            <strong id="confidence">0.00</strong>
+        </div>
+
+        <div class="info-row">
+            <span>ESP32</span>
+            <strong id="esp32">-</strong>
+        </div>
+    </section>
+
+    <section class="panel warning-panel">
+        <h2>Sistem Peringatan</h2>
+
+        <div class="info-row">
+            <span>Status Buzzer</span>
+            <strong id="buzzer">-</strong>
+        </div>
+
+        <div class="warning-box" id="warning-box">
+            <h3>⚠ PERINGATAN</h3>
+            <p id="warning-text">Sistem dalam kondisi aman.</p>
+        </div>
+    </section>
+
+    <section class="panel log-panel">
+        <h2>Log Deteksi</h2>
+        <div id="log-list"></div>
+    </section>
+
+</main>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
